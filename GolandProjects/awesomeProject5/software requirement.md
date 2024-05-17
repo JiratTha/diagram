@@ -1,4 +1,4 @@
-1. Workload/Priority Specification
+1.Workload/Priority Specification
    รายละเอียด:
    High Priority (สูง): Registration page, Point Accumulation เเละ Redemption page
    Medium Priority (ปานกลาง): Point History Page, Lucky Draw เเละ Questionnaire
@@ -11,12 +11,12 @@
 
 การประมวลผลแบบอะซิงโครนัส: จัดการกับการดำเนินการ เช่น การสะสมคะแนน การบันทึกการแลกของรางวัล และการอัปเดตสมาชิกภาพแบบอะซิงโครนัส เพื่อปรับปรุงความตอบสนองและลดเวลารอสำหรับผู้ใช้
 
-2. System Concurrent Handling
+2.System Concurrent Handling
    Load Balancing: การใช้เทคนิคโหลดบาลานซิ่งเพื่อกระจายการร้องขอไปยังเซิร์ฟเวอร์หลายเครื่อง
    Session Management: การจัดการเซสชั่นผู้ใช้เพื่อรับประกันว่าการทำรายการสามารถดำเนินการได้อย่างต่อเนื่องและมีประสิทธิภาพ
    Database Transactions: ใช้การจัดการธุรกรรมข้อมูลเพื่อให้แน่ใจว่าข้อมูลถูกต้องและไม่ซ้ำซ้อน
 
-3. API Specification
+3.API Specification
 
     3.1 Login/Register
 Endpoint: POST /api/users/auth
@@ -97,7 +97,7 @@ Error:
 400 Bad Request if the request is malformed.
 401 Unauthorized if the user is not authenticated.
 
-4. External Service Specification
+4.External Service Specification
    LINE API: ใช้สำหรับการลงทะเบียนและล็อกอิน
    OCR Service: ใช้สำหรับการรู้จำข้อความจากภาพ
    Email Service: ใช้สำหรับการส่งอีเมลการแจ้งเตือนและการยืนยันต่างๆ
