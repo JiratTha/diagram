@@ -1,29 +1,65 @@
 ```mermaid
 erDiagram
+USER ||--o{ POINT-TRANSACTION : logs
+USER ||--o{ REDEMPTION : redeems
+USER ||--o{ LUCKY-DRAW-ENTRY : participates
+USER ||--|| USER-MEMBERSHIP : "has"
+REWARD ||--o{ REDEMPTION : "redeemed for"
+MEMBERSHIP-LEVEL ||--o{ USER-MEMBERSHIP : "assigns"
+
     USER {
-        int user_id PK
-        string username
-        string email
-        string password
+        string UserID PK
+        string LINE_UID
+        string LINE_Profile_Picture
+        string LINE_Display_Name
+        string Name
+        string Surname
+        string PhoneNumber
+        string Email
+        string Gender
+        date Birthdate
+        string Lifestyle
+        string Interests
     }
 
-    POINTS {
-        int points_id PK
-        int user_id FK
-        int total_points
+    POINT-TRANSACTION {
+        string TransactionID PK
+        string UserID FK
+        string TransactionType
+        int Points
+        datetime Timestamp
     }
 
-    POINT_TRANSACTION {
-        int transaction_id PK
-        int sender_id FK
-        int receiver_id FK
-        int points_transferred
-        datetime transaction_date
+    REWARD {
+        string RewardID PK
+        string Description
+        int PointsRequired
+        string CustomConditions
     }
 
-    USER ||--o{ POINTS: has
-    USER ||--o{ POINT_TRANSACTION: sends
-    USER ||--o{ POINT_TRANSACTION: receives
-    POINTS ||--o| USER: belongs_to
-    POINT_TRANSACTION }o--|| USER: to
+    REDEMPTION {
+        string RedemptionID PK
+        string UserID FK
+        string RewardID FK
+        datetime Timestamp
+    }
+
+    MEMBERSHIP-LEVEL {
+        string LevelID PK
+        string LevelName
+        int PointThreshold
+    }
+
+    USER-MEMBERSHIP {
+        string UserID FK
+        string LevelID FK
+        date EffectiveDate
+    }
+
+    LUCKY-DRAW-ENTRY {
+        string EntryID PK
+        string UserID FK
+        datetime Timestamp
+        int PointsAward
+    }
 ```
